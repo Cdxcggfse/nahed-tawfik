@@ -1,0 +1,204 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-canvas: #FAF6F0;
+    --color-orange: #E86D3B;
+    --color-orange-dark: #C95323;
+    --color-orange-light: #FF8F63;
+    --color-ink: #1E1E24;
+    --color-ink-muted: #4A4E69;
+    --color-teal: #3AAFA9;
+    --color-yellow: #F7D070;
+    --color-pink: #FF85A1;
+    --font-hand: 'Caveat', 'Architects Daughter', cursive;
+    --font-cursive: 'Covered By Your Grace', 'Patrick Hand', cursive;
+    --font-display: 'Fredoka', 'Outfit', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-canvas);
+  color: var(--color-ink);
+  overflow-x: hidden;
+}
+
+/* Handwritten Font Helper Classes */
+.font-hand {
+  font-family: var(--font-hand);
+}
+
+.font-cursive {
+  font-family: var(--font-cursive);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Cartoon Sketchy Card Borders & Shadows */
+.sketch-box {
+  background: #ffffff;
+  border: 3px solid var(--color-ink);
+  border-radius: 20px;
+  box-shadow: 5px 5px 0px var(--color-ink);
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.sketch-box:hover {
+  transform: translateY(-4px) rotate(-0.5deg);
+  box-shadow: 8px 8px 0px var(--color-ink);
+}
+
+.sketch-box-orange {
+  background: #FFF8F5;
+  border: 3px solid var(--color-orange);
+  border-radius: 20px;
+  box-shadow: 5px 5px 0px var(--color-orange);
+}
+
+.sketch-btn {
+  background-color: var(--color-orange);
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  border: 3px solid var(--color-ink);
+  border-radius: 999px;
+  box-shadow: 4px 4px 0px var(--color-ink);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  cursor: pointer;
+}
+
+.sketch-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--color-ink);
+  background-color: var(--color-orange-dark);
+}
+
+.sketch-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--color-ink);
+}
+
+.sketch-btn-white {
+  background-color: #ffffff;
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-weight: 700;
+  border: 3px solid var(--color-ink);
+  border-radius: 999px;
+  box-shadow: 4px 4px 0px var(--color-ink);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  cursor: pointer;
+}
+
+.sketch-btn-white:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--color-ink);
+  background-color: #F3EFEA;
+}
+
+/* Washi Tape Accent */
+.washi-tape {
+  position: absolute;
+  width: 110px;
+  height: 28px;
+  background-color: rgba(247, 208, 112, 0.75);
+  border: 1px dashed rgba(30, 30, 36, 0.3);
+  backdrop-filter: blur(2px);
+  z-index: 10;
+}
+
+.washi-tape-top-left {
+  top: -12px;
+  left: 20px;
+  transform: rotate(-8deg);
+}
+
+.washi-tape-top-right {
+  top: -12px;
+  right: 20px;
+  transform: rotate(6deg);
+}
+
+/* Sketchy Underline */
+.sketch-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.sketch-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 8px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10' preserveAspectRatio='none'%3E%3Cpath d='M0 5 Q25 1, 50 5 T100 5' stroke='%23E86D3B' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+/* Cartoon Floating Animations */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(3deg); }
+}
+
+@keyframes floatReverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(12px) rotate(-4deg); }
+}
+
+@keyframes pulseHeart {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15) rotate(5deg); }
+}
+
+.animate-float-slow {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 6s ease-in-out infinite;
+}
+
+.animate-pulse-heart {
+  animation: pulseHeart 2.5s ease-in-out infinite;
+}
+
+/* Phone Mockup Custom Framing */
+.phone-mockup-body {
+  background: #0D0D0E;
+  border: 12px solid #1E1E24;
+  border-radius: 44px;
+  box-shadow: 0 20px 40px -15px rgba(0,0,0,0.3), 6px 6px 0px #E86D3B;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF6F0;
+}
+::-webkit-scrollbar-thumb {
+  background: #E86D3B;
+  border-radius: 10px;
+  border: 2px solid #FAF6F0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C95323;
+}
