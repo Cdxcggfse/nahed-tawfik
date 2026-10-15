@@ -37,6 +37,8 @@ body {
   color: var(--color-ink);
   font-family: var(--font-body);
   overflow-x: clip;
+  /* no double-tap zoom delay on buttons/cards */
+  touch-action: manipulation;
   background-image:
     radial-gradient(#201a15 0.9px, transparent 0.9px);
   background-size: 26px 26px;
@@ -64,6 +66,18 @@ body::before {
   z-index: 60;
   opacity: 0.05;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---- mobile perf: drop the heavy repaint layers on touch devices ---- */
+@media (hover: none), (pointer: coarse) {
+  /* full-screen noise layer is a constant repaint cost on phones */
+  .grain::after { display: none; }
+  /* decorative loops never seen up close — freeze them */
+  .animate-float-slow,
+  .animate-wiggle,
+  .animate-spin-slower,
+  .animate-pulse-heart,
+  .animate-ping { animation: none !important; }
 }
 
 ::selection {
@@ -202,6 +216,10 @@ body::before {
   position: relative;
   white-space: nowrap;
 }
+@media (max-width: 380px) {
+  /* let the underlined phrase wrap on tiny phones instead of overflowing */
+  .scribble-underline { white-space: normal; }
+}
 .scribble-underline > svg {
   position: absolute;
   left: -2%;
@@ -306,8 +324,8 @@ body::before {
 }
 
 .animate-float-slow { animation: float 6s ease-in-out infinite; }
-.animate-marquee { animation: marquee 28s linear infinite; }
-.animate-marquee-rev { animation: marquee-rev 34s linear infinite; }
+.animate-marquee { animation: marquee 28s linear infinite; will-change: transform; }
+.animate-marquee-rev { animation: marquee-rev 34s linear infinite; will-change: transform; }
 .animate-spin-slower { animation: spin 14s linear infinite; }
 .animate-wiggle { animation: wiggle 2.4s ease-in-out infinite; }
 .animate-scale-up { animation: popIn 0.45s cubic-bezier(0.34,1.56,0.64,1) both; }

@@ -29,7 +29,7 @@ export default function ReelModal({ reel, onClose }) {
   return (
     <div
       onClick={onClose}
-      className="fixed inset-0 z-[80] bg-black/85 backdrop-blur-md flex items-center justify-center p-4"
+      className="fixed inset-0 z-[80] bg-black/85 sm:backdrop-blur-md flex items-center justify-center p-4"
     >
       <div
         onClick={(e) => e.stopPropagation()}

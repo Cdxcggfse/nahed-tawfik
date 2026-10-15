@@ -1,6 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Play, Clock3 } from 'lucide-react';
 import { SketchyHeart } from './HandDrawnDoodles';
+
+/* Touch devices never get the hover-preview, so mounting 23 <video>
+   elements there is pure decode/memory overhead — show posters instead. */
+function useHasHover() {
+  // Read once at mount — phones should never mount the <video> elements at all
+  const [hasHover, setHasHover] = useState(
+    () => typeof window === 'undefined' || window.matchMedia('(hover: hover) and (pointer: fine)').matches
+  );
+  useEffect(() => {
+    const mq = window.matchMedia('(hover: hover) and (pointer: fine)');
+    setHasHover(mq.matches);
+    const fn = (e) => setHasHover(e.matches);
+    mq.addEventListener('change', fn);
+    return () => mq.removeEventListener('change', fn);
+  }, []);
+  return hasHover;
+}
 
 const REELS = [
   {
@@ -289,6 +306,7 @@ const FILTERS = [
 
 export default function ReelShowcase({ onOpenModal }) {
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const hasHover = useHasHover();
 
   const filtered = selectedCategory === 'all'
     ? REELS
@@ -335,26 +353,36 @@ export default function ReelShowcase({ onOpenModal }) {
             <div className="relative w-full max-w-[280px] phone-mockup-body aspect-[9/16] p-3 flex flex-col justify-between text-white group-hover:-translate-y-2 transition-transform duration-300">
 
               <div className="flex items-center justify-between text-xs px-2 pt-2 z-10">
-                <span className="bg-black/50 backdrop-blur-md px-2 py-0.5 rounded-full border border-white/20 text-[10px] font-bold">
+                <span className="bg-black/65 px-2 py-0.5 rounded-full border border-white/20 text-[10px] font-bold">
                   {reel.badge}
                 </span>
-                <span className="bg-black/50 backdrop-blur-md px-2 py-0.5 rounded-full border border-white/20 text-[10px] font-bold flex items-center gap-1">
+                <span className="bg-black/65 px-2 py-0.5 rounded-full border border-white/20 text-[10px] font-bold flex items-center gap-1">
                   <Clock3 className="w-3 h-3" /> {reel.duration}
                 </span>
               </div>
 
               <div className="absolute inset-0 bg-neutral-900 overflow-hidden flex items-center justify-center">
-                <video
-                  src={reel.videoSrc}
-                  poster={reel.poster}
-                  muted
-                  loop
-                  playsInline
-                  preload="none"
-                  className={`w-full h-full ${reel.fit === 'contain' ? 'object-contain bg-black' : 'object-cover'}`}
-                  onMouseEnter={(e) => e.currentTarget.play().catch(() => {})}
-                  onMouseLeave={(e) => { e.currentTarget.pause(); e.currentTarget.currentTime = 0; }}
-                />
+                {hasHover ? (
+                  <video
+                    src={reel.videoSrc}
+                    poster={reel.poster}
+                    muted
+                    loop
+                    playsInline
+                    preload="none"
+                    className={`w-full h-full ${reel.fit === 'contain' ? 'object-contain bg-black' : 'object-cover'}`}
+                    onMouseEnter={(e) => e.currentTarget.play().catch(() => {})}
+                    onMouseLeave={(e) => { e.currentTarget.pause(); e.currentTarget.currentTime = 0; }}
+                  />
+                ) : (
+                  <img
+                    src={reel.poster}
+                    alt={`${reel.brand} — ${reel.title}`}
+                    loading="lazy"
+                    decoding="async"
+                    className={`w-full h-full ${reel.fit === 'contain' ? 'object-contain bg-black' : 'object-cover'}`}
+                  />
+                )}
                 <div className="absolute inset-0 bg-black/25 group-hover:bg-black/0 transition-colors flex items-center justify-center pointer-events-none">
                   <div className="w-14 h-14 bg-[#E86D3B] rounded-full border-2 border-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                     <Play className="w-7 h-7 text-white fill-current ml-1" />

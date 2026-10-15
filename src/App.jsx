@@ -138,7 +138,7 @@ function Navbar({ active }) {
   }, []);
   return (
     <header className="sticky top-3 z-40 px-3 sm:px-6">
-      <nav className={`max-w-6xl mx-auto bg-[#FFFDF6]/95 backdrop-blur border-[2.5px] border-[#201A15] rounded-2xl px-4 sm:px-5 py-3 flex items-center justify-between gap-3 transition-shadow ${scrolled ? 'shadow-[7px_7px_0_#201A15]' : 'shadow-[5px_5px_0_#201A15]'}`}>
+      <nav className={`max-w-6xl mx-auto bg-[#FFFDF6] sm:bg-[#FFFDF6]/95 sm:backdrop-blur border-[2.5px] border-[#201A15] rounded-2xl px-4 sm:px-5 py-3 flex items-center justify-between gap-3 transition-shadow ${scrolled ? 'shadow-[7px_7px_0_#201A15]' : 'shadow-[5px_5px_0_#201A15]'}`}>
         <a href="#top" className="flex items-center gap-2.5" aria-label="Back to top">
           <span className="w-10 h-10 rounded-xl bg-[#E4572E] border-2 border-[#201A15] shadow-[3px_3px_0_#201A15] flex items-center justify-center font-display font-bold text-white text-lg rotate-[-4deg]">
             N
@@ -221,7 +221,7 @@ function Hero() {
             <span className="text-[13px] font-semibold">Booking reels across Egypt — EN / {'\u0639\u0631\u0628\u064A'}</span>
           </motion.div>
 
-          <motion.h1 variants={item} className="font-display font-bold text-[clamp(2.9rem,7vw,5.4rem)] leading-[1.04] mt-6">
+          <motion.h1 variants={item} className="font-display font-bold text-[clamp(2.2rem,7vw,5.4rem)] leading-[1.04] mt-6">
             Reels that make
             <br />
             people <Scribble>stop scrolling.</Scribble>
@@ -336,7 +336,7 @@ function Hero() {
             { v: <Counter to={23} />, l: 'client reels live', s: 'watch them all below' },
             { v: <Counter to={12} suffix="+" />, l: 'brands edited for', s: 'cafes, food and retail' },
             { v: <span className="font-display font-bold text-3xl">48h</span>, l: 'turnaround', s: 'single reels, post-ready' },
-            { v: <span className="font-display font-bold text-3xl">EN / {'\u0639\u0631\u0628\u064A'}</span>, l: 'scripts & captions', s: 'bilingual by default' },
+            { v: <span className="font-display font-bold text-2xl sm:text-3xl">EN / {'\u0639\u0631\u0628\u064A'}</span>, l: 'scripts & captions', s: 'bilingual by default' },
           ].map((s) => (
             <div key={s.l} className="bg-white border-[2.5px] border-[#201A15] rounded-2xl px-5 py-4 shadow-[4px_4px_0_#201A15] hover:-translate-y-1 transition-transform">
               <dd className="font-display font-bold text-3xl">{s.v}</dd>
