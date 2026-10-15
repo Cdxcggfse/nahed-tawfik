@@ -205,9 +205,9 @@ body::before {
 .scribble-underline > svg {
   position: absolute;
   left: -2%;
-  bottom: -0.28em;
+  bottom: -0.1em;
   width: 104%;
-  height: 0.42em;
+  height: 0.3em;
 }
 
 /* ink band marquee */

@@ -221,7 +221,7 @@ function Hero() {
             <span className="text-[13px] font-semibold">Booking reels across Egypt — EN / {'\u0639\u0631\u0628\u064A'}</span>
           </motion.div>
 
-          <motion.h1 variants={item} className="font-display font-bold text-[clamp(2.9rem,7vw,5.4rem)] leading-[0.96] mt-6">
+          <motion.h1 variants={item} className="font-display font-bold text-[clamp(2.9rem,7vw,5.4rem)] leading-[1.04] mt-6">
             Reels that make
             <br />
             people <Scribble>stop scrolling.</Scribble>
@@ -333,7 +333,7 @@ function Hero() {
       <Reveal className="mt-12">
         <dl className="grid grid-cols-2 lg:grid-cols-4 gap-3">
           {[
-            { v: <Counter to={24} />, l: 'client reels live', s: 'watch them all below' },
+            { v: <Counter to={23} />, l: 'client reels live', s: 'watch them all below' },
             { v: <Counter to={12} suffix="+" />, l: 'brands edited for', s: 'cafes, food and retail' },
             { v: <span className="font-display font-bold text-3xl">48h</span>, l: 'turnaround', s: 'single reels, post-ready' },
             { v: <span className="font-display font-bold text-3xl">EN / {'\u0639\u0631\u0628\u064A'}</span>, l: 'scripts & captions', s: 'bilingual by default' },
