@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { BarChart3, Shield, TrendingUp, Search, AlertCircle, Award } from 'lucide-react';
-import { SketchyHeart, SketchyArrow } from './HandDrawnDoodles';
+import { Shield, TrendingUp, AlertCircle, Award } from 'lucide-react';
 
 export default function ResearchSection() {
   const [flippedCard, setFlippedCard] = useState(null);
@@ -45,11 +44,9 @@ export default function ResearchSection() {
       
       {/* Hand-drawn Header Matching Reference Screenshot 2 */}
       <div className="mb-12">
-        <span className="font-hand font-extrabold text-[#E86D3B] text-2xl tracking-wide block mb-1">
-          02. ANALYTICS & MARKET AUDIT
-        </span>
-        <h2 className="font-display font-extrabold text-3xl sm:text-5xl text-[#E86D3B] flex items-center gap-3">
-          2- Market Research & Analysis:
+        <span className="chapter-tag mb-4">02 · Analytics & market audit</span>
+        <h2 className="font-display font-bold text-3xl sm:text-5xl text-[#1E1E24] mt-3">
+          Market research & analysis
         </h2>
         <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center gap-6">
           <ul className="space-y-2 font-display font-bold text-xl sm:text-2xl text-[#1E1E24]">
@@ -69,7 +66,7 @@ export default function ResearchSection() {
       </div>
 
       {/* Interactive SWOT Matrix Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {swotItems.map((item, idx) => {
           const Icon = item.icon;
           const isFlipped = flippedCard === idx;
@@ -112,57 +109,6 @@ export default function ResearchSection() {
           );
         })}
       </div>
-
-      {/* Competitor Analysis Breakdown Banner */}
-      <div className="sketch-box p-6 sm:p-8 bg-white relative">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="md:w-1/2 space-y-4">
-            <div className="inline-flex items-center gap-2 bg-[#FFE89C] border-2 border-[#1E1E24] px-3 py-1 rounded-full font-display font-bold text-xs">
-              <Search className="w-4 h-4 text-[#E86D3B]" /> Competitor Benchmarking Strategy
-            </div>
-            <h3 className="font-display font-bold text-2xl sm:text-3xl text-[#1E1E24]">
-              Data-Driven Edits That Stand Out From The Crowd 🚀
-            </h3>
-            <p className="text-sm text-[#4A4E69] leading-relaxed">
-              By auditing 20+ top niche competitors, I isolate hook patterns, retention drop-off points, and optimal caption styling to maximize watch time.
-            </p>
-          </div>
-
-          {/* Chart Metric Visual */}
-          <div className="md:w-1/2 w-full space-y-3 bg-[#FAF6F0] p-4 rounded-xl border-2 border-[#1E1E24]">
-            <div>
-              <div className="flex justify-between text-xs font-bold font-display mb-1">
-                <span>Hook Retention (First 3 Sec)</span>
-                <span className="text-[#E86D3B]">94% vs 62% Industry Avg</span>
-              </div>
-              <div className="w-full bg-gray-200 h-3 rounded-full overflow-hidden border border-black">
-                <div className="bg-[#E86D3B] h-full rounded-full w-[94%]"></div>
-              </div>
-            </div>
-
-            <div>
-              <div className="flex justify-between text-xs font-bold font-display mb-1">
-                <span>Completion Rate (Reels / Shorts)</span>
-                <span className="text-[#3AAFA9]">82% High Retention</span>
-              </div>
-              <div className="w-full bg-gray-200 h-3 rounded-full overflow-hidden border border-black">
-                <div className="bg-[#3AAFA9] h-full rounded-full w-[82%]"></div>
-              </div>
-            </div>
-
-            <div>
-              <div className="flex justify-between text-xs font-bold font-display mb-1">
-                <span>Audience Engagement (Likes & Shares)</span>
-                <span className="text-[#F7D070]">3.8x Competitor Benchmark</span>
-              </div>
-              <div className="w-full bg-gray-200 h-3 rounded-full overflow-hidden border border-black">
-                <div className="bg-[#F7D070] h-full rounded-full w-[88%]"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </section>
   );
 }

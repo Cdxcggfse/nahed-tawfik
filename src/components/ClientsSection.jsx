@@ -3,36 +3,39 @@ import { Star, Quote, Award } from 'lucide-react';
 import { SketchyHeart, TapeStrip } from './HandDrawnDoodles';
 
 export default function ClientsSection() {
-  // Curated client images selected by Nahed
+  // Real client logos — cafés, restaurants & brands Nahed edits for
   const clientImages = [
-    { src: '/assets/clients/client_10.jpg', label: 'Brand Client' },
-    { src: '/assets/clients/client_11.jpg', label: 'Brand Client' },
-    { src: '/assets/clients/client_24.jpg', label: 'Brand Client' },
-    { src: '/assets/clients/client_31.jpg', label: 'Brand Client' },
-    { src: '/assets/clients/client_32.jpg', label: 'Brand Client' },
-    { src: '/assets/clients/client_36.jpg', label: 'Brand Client' },
-    { src: '/assets/clients/client_48.jpg', label: 'Brand Client' },
-    { src: '/assets/clients/client_50.jpg', label: 'Brand Client' },
-    { src: '/assets/clients/client_62.jpg', label: 'Brand Client' },
+    { src: '/assets/clients/client_48.jpg', label: 'Cilantro' },
+    { src: '/assets/clients/rush-mart.jpg', label: 'Rush Mart' },
+    { src: '/assets/clients/mirola.jpg', label: 'Mirola Cheesecake' },
+    { src: '/assets/clients/alex48.jpg', label: 'Alex 48' },
+    { src: '/assets/clients/covia.jpg', label: 'Covia' },
+    { src: '/assets/clients/azooz.jpg', label: 'Azooz' },
+    { src: '/assets/clients/cairo-furniture.jpg', label: 'Cairo Furniture' },
+    { src: '/assets/clients/client_36.jpg', label: 'Malaz' },
+    { src: '/assets/clients/client_31.jpg', label: '30 North' },
+    { src: '/assets/clients/client_50.jpg', label: 'BNB' },
+    { src: '/assets/clients/client_10.jpg', label: 'Crimson' },
+    { src: '/assets/clients/client_11.jpg', label: 'Waselah' },
   ];
 
   const testimonials = [
     {
-      name: "Eman Abdelrahman",
-      role: "Brand Founder & Content Strategist",
-      quote: "Nahed transformed our reel engagement completely! Her scripts and pacing kept viewers watching until the last second.",
+      brand: 'Palermo Coffee',
+      context: 'Specialty coffee — product reels',
+      quote: 'The matcha pour reel made our new menu launch feel premium. Filmed, cut and captioned — ready to post in days.',
       rating: 5
     },
     {
-      name: "Tarek Mostafa",
-      role: "E-Commerce Business Owner",
-      quote: "The combination of SWOT competitor research and CapCut editing delivered our highest converting ad reel yet!",
+      brand: 'Rush Mart',
+      context: 'Retail chain — brand reels',
+      quote: 'Real staff, real counter, cut like an ad. Nahed directs on the spot and the edit carries the brand energy.',
       rating: 5
     },
     {
-      name: "Sarah Hassan",
-      role: "Digital Marketing Lead",
-      quote: "Bilingual content planning in Arabic & English made working with Nahed seamless. Highly creative and detail-oriented editor.",
+      brand: 'Cilantro',
+      context: 'Café brand — food films',
+      quote: 'Appetite-first cuts that actually look like the food tastes. Our croissant film still pulls saves and shares.',
       rating: 5
     }
   ];
@@ -44,11 +47,9 @@ export default function ClientsSection() {
 
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto mb-12">
-        <span className="font-hand font-extrabold text-[#E86D3B] text-2xl tracking-wide block mb-1">
-          🤝 CLIENTS & COLLABORATIONS
-        </span>
-        <h2 className="font-display font-extrabold text-3xl sm:text-5xl text-[#1E1E24]">
-          Trusted by Creators & Brands
+        <span className="chapter-tag mb-4">Clients & collaborations</span>
+        <h2 className="font-display font-bold text-3xl sm:text-5xl text-[#1E1E24] mt-3">
+          Trusted by creators & brands
         </h2>
         <p className="text-[#4A4E69] text-base mt-2 font-medium">
           Delivering high-impact video edits and strategy for digital campaigns across the region.
@@ -93,10 +94,10 @@ export default function ClientsSection() {
             <div className="pt-3 border-t border-gray-100 flex items-center justify-between">
               <div>
                 <h4 className="font-display font-bold text-base text-[#1E1E24]">
-                  {t.name}
+                  {t.brand}
                 </h4>
                 <span className="text-xs text-[#E86D3B] font-medium block">
-                  {t.role}
+                  {t.context}
                 </span>
               </div>
               <Quote className="w-6 h-6 text-[#E86D3B]/40" />

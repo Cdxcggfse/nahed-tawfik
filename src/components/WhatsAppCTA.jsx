@@ -15,7 +15,7 @@ export function WhatsAppIcon({ className = "w-6 h-6" }) {
 }
 
 export default function WhatsAppFloatingButton({ 
-  phoneNumber = "", 
+  phoneNumber = "201124138869", 
   message = "Hi Nahed! I saw your portfolio and I'd like to discuss a video editing project." 
 }) {
   const encodedMessage = encodeURIComponent(message);
@@ -27,7 +27,7 @@ export default function WhatsAppFloatingButton({
     <div className="fixed bottom-6 right-6 z-40 flex items-center gap-3 group">
       {/* Tooltip text */}
       <span className="hidden sm:inline-block bg-[#1E1E24] text-white text-xs font-display font-bold px-3 py-1.5 rounded-xl border-2 border-white shadow-lg group-hover:scale-105 transition-transform">
-        Quick Chat on WhatsApp 💬
+        Quick chat on WhatsApp
       </span>
 
       {/* Floating Action Button */}
@@ -36,7 +36,7 @@ export default function WhatsAppFloatingButton({
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
-        className="w-14 h-14 bg-[#25D366] text-white border-3 border-[#1E1E24] rounded-full flex items-center justify-center shadow-[4px_4px_0px_#1E1E24] hover:scale-110 hover:-translate-y-1 active:translate-y-0 transition-all duration-300 relative group"
+        className="w-14 h-14 bg-[#25D366] text-white border-[2.5px] border-[#1E1E24] rounded-full flex items-center justify-center shadow-[4px_4px_0px_#1E1E24] hover:scale-110 hover:-translate-y-1 active:translate-y-0 transition-all duration-300 relative group"
       >
         <WhatsAppIcon className="w-8 h-8" />
         <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#E86D3B] border-2 border-white rounded-full animate-ping" />

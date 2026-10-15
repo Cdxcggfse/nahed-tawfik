@@ -10,8 +10,15 @@ export default defineConfig({
   ],
   server: {
     watch: {
-      // Ignore large binary / archive files so Vite watcher doesn't crash
-      ignored: ['**/*.rar', '**/*.zip', '**/*.7z', '**/*.mp4'],
+      // Ignore bulky source / temp folders so the dev server never stalls:
+      // raw client footage, thumbnails scratch dir, old exports
+      ignored: [
+        '**/*.rar', '**/*.zip', '**/*.7z',
+        '**/*.mp4', '**/*.mov', '**/*.MOV', '**/*.avi', '**/*.mkv',
+        '**/drive-download*/**',
+        '**/thumb-tmp/**',
+        '**/output/**',
+      ],
     },
   },
 });

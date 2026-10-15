@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Raw client footage + scratch dirs (too large for git, local sources only)
+drive-download-20261013T143054Z-1-001/
+thumb-tmp/
+output/
+*.bak

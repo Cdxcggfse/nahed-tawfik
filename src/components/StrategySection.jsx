@@ -53,11 +53,9 @@ export default function StrategySection() {
 
       {/* Hand-drawn Header Matching Reference Screenshot 2 */}
       <div className="mb-12">
-        <span className="font-hand font-extrabold text-[#E86D3B] text-2xl tracking-wide block mb-1">
-          01. FOUNDATION & PLANNING
-        </span>
-        <h2 className="font-display font-extrabold text-3xl sm:text-5xl text-[#E86D3B] flex items-center gap-3">
-          1- Content Strategy & Planning:
+        <span className="chapter-tag mb-4">01 · Foundation & planning</span>
+        <h2 className="font-display font-bold text-3xl sm:text-5xl text-[#1E1E24] mt-3">
+          Content strategy & planning
         </h2>
         <p className="text-[#4A4E69] text-base sm:text-lg max-w-2xl mt-2 font-medium">
           Great video editing begins with strategic planning. Every cut, transition, and audio cue serves a psychological purpose.
@@ -127,7 +125,7 @@ export default function StrategySection() {
                   : 'text-[#1E1E24] hover:bg-gray-100'
               }`}
             >
-              خطة المحتوى العربي 🇪🇬
+              خطة المحتوى العربي
             </button>
           </div>
         </div>
