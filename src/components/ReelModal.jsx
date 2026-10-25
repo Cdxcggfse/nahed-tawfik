@@ -33,12 +33,12 @@ export default function ReelModal({ reel, onClose }) {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="sketch-box bg-white max-w-4xl w-full p-4 sm:p-6 rounded-3xl relative animate-scale-up grid grid-cols-1 md:grid-cols-12 gap-6 items-center max-h-[92vh] overflow-y-auto"
+        className="sketch-box bg-white max-w-4xl w-full p-4 sm:p-6 rounded-3xl relative animate-scale-up grid grid-cols-1 md:grid-cols-12 gap-6 items-center max-h-[92vh] overflow-y-auto overflow-x-hidden"
       >
         <button
           onClick={onClose}
           aria-label="Close"
-          className="absolute -top-3 -right-3 z-30 p-2.5 bg-[#E86D3B] text-white border-2 border-[#1E1E24] rounded-full shadow-[3px_3px_0px_#1E1E24] hover:scale-110 transition-transform"
+          className="absolute top-3 right-3 z-30 p-2.5 bg-[#E86D3B] text-white border-2 border-[#1E1E24] rounded-full shadow-[3px_3px_0px_#1E1E24] hover:scale-110 transition-transform"
         >
           <X className="w-5 h-5" />
         </button>

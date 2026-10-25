@@ -15,6 +15,8 @@ import EditingTimelineSection from './components/EditingTimelineSection.jsx';
 import ReelShowcase from './components/ReelShowcase.jsx';
 import ReelModal from './components/ReelModal.jsx';
 import ClientsSection from './components/ClientsSection.jsx';
+import { CLIENTS } from './data/clients';
+import { REELS } from './data/reels';
 import WhatsAppFloatingButton from './components/WhatsAppCTA.jsx';
 import { SketchyStar, SketchySquiggle, SketchyArrow } from './components/HandDrawnDoodles.jsx';
 
@@ -249,29 +251,23 @@ function Hero() {
           <motion.div variants={item} className="mt-7">
             <div className="flex items-center gap-3">
               <div className="flex -space-x-3">
-                {[
-                  ['/assets/clients/client_48.jpg', 'Cilantro'],
-                  ['/assets/clients/rush-mart.jpg', 'Rush Mart'],
-                  ['/assets/clients/mirola.jpg', 'Mirola'],
-                  ['/assets/clients/alex48.jpg', 'Alex 48'],
-                  ['/assets/clients/covia.jpg', 'Covia'],
-                ].map(([src, name]) => (
+                {['palermo', 'rushmart', 'mirola', 'alex48', 'covia'].map((id) => (
                   <img
-                    key={name}
-                    src={src}
-                    alt={`${name} logo — client of Nahed Tawfik`}
-                    title={name}
+                    key={id}
+                    src={CLIENTS[id].src}
+                    alt={`${CLIENTS[id].label} logo — client of Nahed Tawfik`}
+                    title={CLIENTS[id].label}
                     loading="lazy"
                     className="w-11 h-11 rounded-full border-[2.5px] border-[#201A15] bg-white object-cover shadow-[2px_2px_0_#201A15]"
                   />
                 ))}
-                <span className="w-11 h-11 rounded-full border-[2.5px] border-[#201A15] bg-[#201A15] text-white font-display font-bold text-[10px] flex items-center justify-center shadow-[2px_2px_0_#201A15]">+9</span>
+                <span className="w-11 h-11 rounded-full border-[2.5px] border-[#201A15] bg-[#201A15] text-white font-display font-bold text-[10px] flex items-center justify-center shadow-[2px_2px_0_#201A15]">+{Object.keys(CLIENTS).length - 5}</span>
               </div>
               <div className="text-sm">
                 <span className="flex gap-0.5 text-[#E4572E]" aria-label="5 star rated">
                   {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-current" />)}
                 </span>
-                <span className="font-semibold">Trusted by Cilantro, Rush Mart, Mirola & more</span>
+                <span className="font-semibold">Work for Palermo, Rush Mart, Mirola & more</span>
                 <span className="text-[#5C564D]"> — caf{'\u00E9'}s & brands across Egypt</span>
               </div>
             </div>
@@ -333,8 +329,8 @@ function Hero() {
       <Reveal className="mt-12">
         <dl className="grid grid-cols-2 lg:grid-cols-4 gap-3">
           {[
-            { v: <Counter to={23} />, l: 'client reels live', s: 'watch them all below' },
-            { v: <Counter to={12} suffix="+" />, l: 'brands edited for', s: 'cafes, food and retail' },
+            { v: <Counter to={REELS.length} />, l: 'client reels live', s: 'watch them all below' },
+            { v: <Counter to={Object.keys(CLIENTS).length} suffix="+" />, l: 'brands edited for', s: 'cafes, food and retail' },
             { v: <span className="font-display font-bold text-3xl">48h</span>, l: 'turnaround', s: 'single reels, post-ready' },
             { v: <span className="font-display font-bold text-2xl sm:text-3xl">EN / {'\u0639\u0631\u0628\u064A'}</span>, l: 'scripts & captions', s: 'bilingual by default' },
           ].map((s) => (
