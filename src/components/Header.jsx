@@ -31,7 +31,7 @@ export default function Header({ onToggleSound, isMuted }) {
             <h1 className="font-display font-bold text-xl sm:text-2xl text-[#1E1E24] leading-tight tracking-tight flex items-center gap-1.5">
               Nahed Tawfik
               <span className="font-hand text-sm text-[#E86D3B] bg-[#FFE89C] px-2 py-0.5 rounded-full border border-[#1E1E24] hidden sm:inline-block rotate-[-2deg]">
-                Video Editor
+                Content Creator
               </span>
             </h1>
             <p className="font-hand text-xs text-[#4A4E69] font-medium hidden sm:block">

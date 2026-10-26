@@ -16,7 +16,7 @@ export function WhatsAppIcon({ className = "w-6 h-6" }) {
 
 export default function WhatsAppFloatingButton({ 
   phoneNumber = "201124138869", 
-  message = "Hi Nahed! I saw your portfolio and I'd like to discuss a video editing project." 
+  message = "Hi Nahed! I saw your portfolio and I'd like to discuss a content creation project." 
 }) {
   const encodedMessage = encodeURIComponent(message);
   const whatsappUrl = phoneNumber 

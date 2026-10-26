@@ -32,7 +32,7 @@ export default function Hero({ onOpenReelModal }) {
             <h1 className="font-display font-extrabold text-4xl sm:text-6xl text-[#1E1E24] leading-[1.1] tracking-tight">
               Crafting Viral <br className="hidden sm:inline" />
               <span className="relative inline-block text-[#E86D3B]">
-                Video Editing
+                Content Creation
                 <svg className="absolute -bottom-2 left-0 w-full h-4 text-[#E86D3B]" viewBox="0 0 200 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M5 8 C50 2, 150 12, 195 6" stroke="currentColor" strokeWidth="5" strokeLinecap="round" />
                 </svg>
@@ -113,7 +113,7 @@ export default function Hero({ onOpenReelModal }) {
             <div className="relative aspect-4/5 rounded-xl overflow-hidden border-2 border-[#1E1E24] bg-[#FFE89C]">
               <img 
                 src="/assets/profile/nahed_profile.jpg" 
-                alt="Nahed Tawfik - Video Editor"
+                alt="Nahed Tawfik - Content Creator"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-3">

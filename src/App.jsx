@@ -147,7 +147,7 @@ function Navbar({ active }) {
           </span>
           <span className="leading-none">
             <span className="font-display font-bold text-[17px] block">Nahed Tawfik</span>
-            <span className="text-[11px] font-semibold tracking-[0.14em] uppercase text-[#5C564D]">Video editor</span>
+            <span className="text-[11px] font-semibold tracking-[0.14em] uppercase text-[#5C564D]">Content creator</span>
           </span>
         </a>
         <div className="hidden lg:flex items-center gap-6 text-[14px] font-semibold">
@@ -232,7 +232,8 @@ function Hero() {
           </motion.h1>
 
           <motion.p variants={item} className="mt-6 text-[17px] leading-relaxed text-[#5C564D] max-w-xl font-medium">
-            I'm Nahed - a bilingual video editor and content strategist based in Cairo. I plan the idea,
+            I'm Nahed - a bilingual content creator based in Cairo, working in content creation & planning
+            and content creation & writing. I plan the idea,
             write the hook, cut the reel, and design the cover, so Egyptian brands get
             watch time, not just views. On-location filming across Cairo, Giza and all of Egypt.
           </motion.p>
@@ -286,7 +287,7 @@ function Hero() {
             <span className="tape -bottom-3 right-8 rotate-[10deg] !bg-[#FFD8C7]" />
             <img
               src="/assets/profile/nahed_profile.jpg"
-              alt="Portrait of video editor Nahed Tawfik"
+              alt="Portrait of content creator Nahed Tawfik"
               className="w-full aspect-[4/5] object-cover rounded-2xl border-2 border-[#201A15]"
               fetchPriority="high"
             />

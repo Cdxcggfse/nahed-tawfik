@@ -58,7 +58,7 @@ export default function StrategySection() {
           Content strategy & planning
         </h2>
         <p className="text-[#4A4E69] text-base sm:text-lg max-w-2xl mt-2 font-medium">
-          Great video editing begins with strategic planning. Every cut, transition, and audio cue serves a psychological purpose.
+          Great content creation begins with strategic planning. Every cut, transition, and audio cue serves a psychological purpose.
         </p>
       </div>
 
