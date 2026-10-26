@@ -4,8 +4,8 @@ import {
   useTransform, useMotionValue, useInView, useReducedMotion,
 } from 'framer-motion';
 import {
-  ArrowRight, ArrowUpRight, ArrowUp, BadgeCheck, CalendarCheck, Clapperboard,
-  MessageCircle, Play, Scissors, Sparkles, Star, Wand2, Menu, X,
+  ArrowRight, ArrowUpRight, ArrowUp, BadgeCheck, Brain, CalendarCheck, Clapperboard,
+  MessageCircle, PenLine, Play, Scissors, Sparkles, Star, Target, TrendingUp, Wand2, Menu, X,
   Check, Plus, Quote,
 } from 'lucide-react';
 import StrategySection from './components/StrategySection.jsx';
@@ -127,6 +127,7 @@ const NAV_LINKS = [
   ['Work', '#reels-showcase'],
   ['Process', '#strategy'],
   ['Clients', '#clients'],
+  ['About', '#about'],
   ['FAQ', '#faq'],
 ];
 
@@ -570,6 +571,108 @@ function Faq() {
   );
 }
 
+/* ============================== about ============================== */
+
+const SKILLS = [
+  {
+    icon: Target,
+    title: 'Content Strategy & Planning',
+    tint: '#FFE9A8',
+    points: ['Clear strategy before anything is shot', 'Content plan mapped to business goals', 'Format and cadence chosen on purpose'],
+  },
+  {
+    icon: PenLine,
+    title: 'Content Creation & Writing',
+    tint: '#FFD8C7',
+    points: ['Copywriting that reaches the audience', 'Reels scriptwriting — hook in the first second', 'Creative ideas + AI-assisted design'],
+  },
+  {
+    icon: TrendingUp,
+    title: 'Performance Marketing',
+    tint: '#E8F5F0',
+    points: ['Demand analysis + customer profiles', 'Value map, media plan, ad analysis & optimization', 'Scaling what works — cut what does not'],
+  },
+];
+
+function About() {
+  return (
+    <section id="about" className="max-w-6xl mx-auto px-4 sm:px-6 py-14 scroll-mt-24">
+      <Reveal className="text-center max-w-2xl mx-auto mb-10">
+        <span className="chapter-tag"><i /> More about me</span>
+        <h2 className="font-display font-bold text-3xl sm:text-[2.75rem] leading-tight mt-3">
+          Psychology graduate. <span className="font-accent font-normal text-[#E4572E]">Marketer by mindset.</span>
+        </h2>
+        <p className="text-[#5C564D] font-medium mt-2">I'm Nahed — Psychology graduate with a Master's, now working in marketing with a mind built to understand the customer before selling to them.</p>
+      </Reveal>
+
+      <div className="grid lg:grid-cols-12 gap-5 items-start">
+        {/* psychology edge */}
+        <Reveal className="lg:col-span-5">
+          <div className="bg-[#201A15] text-[#FFF8EB] border-[2.5px] border-[#201A15] rounded-[22px] shadow-[8px_8px_0_#E4572E] p-6 sm:p-7 rotate-[-1deg] h-full">
+            <span className="inline-flex items-center gap-2 bg-[#FFB627] text-[#201A15] font-display font-bold text-[11px] uppercase tracking-widest rounded-full border-2 border-[#201A15] px-3 py-1">
+              <Brain className="w-3.5 h-3.5" /> What sets me apart
+            </span>
+            <h3 className="font-display font-bold text-2xl mt-4 leading-tight">I studied the mind, so I understand the customer.</h3>
+            <p className="text-white/75 font-medium mt-3 text-[15px]">
+              My Psychology background is not a footnote — it is the method. I read customer behaviour and buying
+              motivations, and that shows up in the content and the ads, with better results.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {['Customer behaviour', 'Buying motivations', 'Persuasion that feels human'].map((t) => (
+                <span key={t} className="text-[11px] font-bold bg-white/10 border border-white/25 rounded-full px-3 py-1.5">{t}</span>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+
+        {/* skills */}
+        <div className="lg:col-span-7 grid sm:grid-cols-3 gap-4">
+          {SKILLS.map((s, i) => (
+            <motion.div
+              key={s.title}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.55, delay: i * 0.08, ease: EASE }}
+              className="bg-white border-[2.5px] border-[#201A15] rounded-[22px] shadow-[5px_5px_0_#201A15] p-5 hover:-translate-y-1 transition-transform"
+            >
+              <span className="w-11 h-11 rounded-xl border-2 border-[#201A15] flex items-center justify-center rotate-[-4deg]" style={{ background: s.tint }}>
+                <s.icon className="w-5 h-5 text-[#201A15]" strokeWidth={2.5} />
+              </span>
+              <h3 className="font-display font-bold text-[17px] mt-3 leading-snug">{s.title}</h3>
+              <ul className="mt-3 space-y-2 text-[13px] font-semibold text-[#5C564D]">
+                {s.points.map((p) => (
+                  <li key={p} className="flex items-start gap-2">
+                    <Check className="w-3.5 h-3.5 mt-0.5 shrink-0 text-[#E4572E]" strokeWidth={3} />
+                    {p}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* open to work strip */}
+      <Reveal className="mt-5">
+        <div className="bg-[#FFE9A8] border-[2.5px] border-[#201A15] rounded-[22px] shadow-[6px_6px_0_#201A15] px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
+          <div className="flex items-start gap-3">
+            <span className="relative flex w-2.5 h-2.5 mt-2 shrink-0">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0E7C6B] opacity-60" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#0E7C6B]" />
+            </span>
+            <div>
+              <p className="font-display font-bold text-lg leading-tight">Looking for an opportunity in a marketing agency</p>
+              <p className="text-sm text-[#5C564D] font-medium mt-0.5">Passionate, fast learner, psychology-trained marketer. If you know a team that is hiring — or want me on yours, let's talk.</p>
+            </div>
+          </div>
+          <Magnetic><a href="#contact" className="sketch-btn whitespace-nowrap">Get in touch <ArrowUpRight className="w-4 h-4" /></a></Magnetic>
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
 /* ============================== final CTA + footer ============================== */
 
 function FinalCTA() {
@@ -639,7 +742,7 @@ function FinalCTA() {
 
 /* ============================== app ============================== */
 
-const SECTION_IDS = ['#reels-showcase', '#strategy', '#clients', '#faq'];
+const SECTION_IDS = ['#reels-showcase', '#strategy', '#clients', '#about', '#faq'];
 
 export default function App() {
   const [activeReel, setActiveReel] = useState(null);
@@ -702,6 +805,7 @@ export default function App() {
         <div id="clients" className="scroll-mt-24">
           <ClientsSection />
         </div>
+        <About />
         <Faq />
         <FinalCTA />
       </main>
